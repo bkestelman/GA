@@ -16,7 +16,7 @@
     <script src="statesClean.js"></script>
     <script src="mapSettings.js"></script>
     <script src="mapHandlers.js"></script>
-    <script src="initDB.js"></script>
+    <script src="db.js"></script>
     <script src="map.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2GxWpKIYyVx71cetBMonxi0wN9PH7WBU&callback=initMap">

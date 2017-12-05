@@ -37,6 +37,8 @@ function initMap() {
 	map.data.addListener('click', function(event) {
 		handleMouseClick(event);
 	});
+	
+	persistStates(map);
 }
 
 function useMap(map) {
