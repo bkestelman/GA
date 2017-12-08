@@ -38,9 +38,35 @@ function initMap() {
 		handleMouseClick(event);
 	});
 	
-	persistStates(map);
+	initStates(map);
 }
 
 function useMap(map) {
 	handlersUseMap(map);
+}
+
+function initStates(map) {
+	map.data.forEach(function(feature) {
+		var params = "name=" + feature.f.Name;
+		/*simpleReq("GET", "/ga/selectState", params, function() {
+			initState(feature);
+		});*/
+		var req = new XMLHttpRequest();
+		req.addEventListener("load", function() {
+				var state = JSON.parse(this.responseText);
+				var color;
+				if (isRepublican(state)) color = 'red';
+				else if (isDemocratic(state)) color = 'blue';
+				map.data.overrideStyle(feature, {fillColor: color});
+				feature.setProperty("isColorful", true);
+				feature.setProperty("color", color);
+		});
+		req.open("GET", "/ga/selectState?" + params);
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		req.send();
+	});
+}
+
+function changeColor(feature, color) {
+	map.data.overrideStyle(feature, {fillColor: color});
 }

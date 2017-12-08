@@ -20,4 +20,6 @@ function requestPersistState(feature) {
 }
 
 function persistStateListener() {
+	console.log("Response: ");
+	console.log(this.responseText);
 }
