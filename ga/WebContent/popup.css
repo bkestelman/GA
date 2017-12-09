@@ -1,0 +1,42 @@
+.popup {
+	position: fixed;
+	visibility: hidden;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.popup:target {
+	visibility: visible;
+}
+
+.popup:focus {
+	visibility: hidden;
+}
+
+.popupInner {
+	background-color: white;
+	width: 30%;
+	position: relative;
+	margin: auto;
+	border-radius: 10px;
+}
+
+.popupContent {
+	padding: 10px;
+}
+
+.popup h1 {
+	text-align: center;
+}
+
+.fullPageAnchor {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+}

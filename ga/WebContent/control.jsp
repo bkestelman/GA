@@ -11,6 +11,6 @@
 </body>
 </html> -->
 
-<input type="button" value="About"/>
+<a class="button" href="#aboutPopup">About</a>
 <input type="button" value="Login/Register"/>
 <input type="button" value="Another Button"/>

@@ -11,7 +11,7 @@
   <body>
     <div id="map"></div>
     <span id="control"><jsp:include page="control.jsp"/></span>
-    <div id="about" class="popup"></div>
+    <jsp:include page="popup.jsp"/>
     <script src="statesClean.js"></script>
     <script src="districts.js"></script>
     <script src="mapSettings.js"></script>
