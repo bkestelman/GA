@@ -2,6 +2,8 @@
  * 
  */
 
+var selectedState = -1;
+
 function initMap() {
 	var center_us = {
 		lat : 39.8283,
@@ -39,6 +41,9 @@ function initMap() {
 	});
 	
 	initStates(map);
+	
+	//console.log(districtsGeojson.features[1]);
+	
 }
 
 function useMap(map) {

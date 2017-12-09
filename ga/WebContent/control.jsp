@@ -11,5 +11,6 @@
 </body>
 </html> -->
 
+<input type="button" value="About"/>
 <input type="button" value="Login/Register"/>
 <input type="button" value="Another Button"/>

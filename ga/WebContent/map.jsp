@@ -6,11 +6,14 @@
   	<link rel="stylesheet" href="body.css"/>
 	<link rel="stylesheet" href="map.css"/>
 	<link rel="stylesheet" href="control.css"/>
+	<link rel="stylesheet" href="popup.css"/>
   </head>
   <body>
     <div id="map"></div>
     <span id="control"><jsp:include page="control.jsp"/></span>
+    <div id="about" class="popup"></div>
     <script src="statesClean.js"></script>
+    <script src="districts.js"></script>
     <script src="mapSettings.js"></script>
     <script src="state.js"></script>
     <script src="requests.js"></script>
