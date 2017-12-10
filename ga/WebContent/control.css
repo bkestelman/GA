@@ -15,6 +15,7 @@ input,a {
 	border: 1px solid;
 	border-color: orange;
 	background-color: black;
+	border-radius: 5px;
 	color: white;
 	text-decoration: none;
 	text-align: center;

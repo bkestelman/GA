@@ -12,5 +12,5 @@
 </html> -->
 
 <a class="button" href="#aboutPopup">About</a>
-<input type="button" value="Login/Register"/>
+<a class="button" href="#loginPopup">Login/Register</a>
 <input type="button" value="Another Button"/>

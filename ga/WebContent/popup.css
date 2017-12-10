@@ -12,10 +12,6 @@
 	visibility: visible;
 }
 
-.popup:focus {
-	visibility: hidden;
-}
-
 .popupInner {
 	background-color: white;
 	width: 30%;

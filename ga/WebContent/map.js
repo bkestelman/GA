@@ -2,34 +2,15 @@
  * 
  */
 
-var selectedState = -1;
+var selectedState = {fips: 0, name: ""};
 
 function initMap() {
-	var center_us = {
-		lat : 39.8283,
-		lng : -98.5795
-	};
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom : zoomInit,
-		center : center_us
-	});
+	var map = newMap();
 	useMap(map);
-
-	map.data.addGeoJson(statesGeojson);
-
-	map.data.setStyle(function(feature) {
-		var color = 'gray';
-		if (feature.getProperty('isColorful')) {
-			color = feature.getProperty('color');
-		}
-		return /** @type {google.maps.Data.StyleOptions} */
-		({
-			fillColor : color,
-			strokeColor : color,
-			strokeWeight : strokeWeightInit
-		});
-	});
-
+	enhanceProperties(statesGeojson);
+	map.data.addGeoJson(statesGeojson); //add all US states to map
+	initStyle(map);
+	
 	map.data.addListener('mouseover', function(event) {
 		handleMouseOver(event);
 	});
@@ -40,38 +21,43 @@ function initMap() {
 		handleMouseClick(event);
 	});
 	
-	initStates(map);
-	
-	//console.log(districtsGeojson.features[1]);
-	
+	colorStates(map);
+}
+
+function newMap() {
+	return new google.maps.Map(document.getElementById('map'), {
+		zoom : zoomInit,
+		center : center_us
+	});
+}
+function enhanceProperties(statesGeojson) {
+	statesGeojson.features.forEach(function(state) {
+		state.properties.isState = true;
+	});
 }
 
 function useMap(map) {
 	handlersUseMap(map);
 }
 
-function initStates(map) {
+function initStyle(map) {
+	map.data.setStyle(function(feature) {
+		return 
+		({
+			strokeWeight : strokeWeightInit,
+		});
+	});
+}
+
+function colorStates(map) {
 	map.data.forEach(function(feature) {
 		var params = "name=" + feature.f.Name;
-		/*simpleReq("GET", "/ga/selectState", params, function() {
-			initState(feature);
-		});*/
-		var req = new XMLHttpRequest();
-		req.addEventListener("load", function() {
+		simpleReq("GET", "/ga/selectState", params, function() {
 				var state = JSON.parse(this.responseText);
 				var color;
 				if (isRepublican(state)) color = 'red';
 				else if (isDemocratic(state)) color = 'blue';
 				map.data.overrideStyle(feature, {fillColor: color});
-				feature.setProperty("isColorful", true);
-				feature.setProperty("color", color);
 		});
-		req.open("GET", "/ga/selectState?" + params);
-		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		req.send();
 	});
-}
-
-function changeColor(feature, color) {
-	map.data.overrideStyle(feature, {fillColor: color});
 }

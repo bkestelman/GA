@@ -7,7 +7,7 @@
 	</div>
 	<div class="popupInner popupContent">
 		<p>
-			Gerrymandering is a serious issue obstructing the proper
+			Gerrymandering is a serious issue obstructing the 
 			representation of American citizens in Congress. Congressional
 			districts are normally redrawn every 10 years, often by the
 			Congressmen whose positions depend on election results in those same
@@ -30,4 +30,9 @@
 		</p>
 	</div>
 	<a class="fullPageAnchor" href="#"></a>
+</div>
+<div id="loginPopup" class="popup">
+	<div class="popupInner">
+		<h1>Login/Register</h1>
+	</div>
 </div>

@@ -5,7 +5,7 @@ import javax.persistence.Persistence;
 
 public class Singleton {
 	
-	private static Singleton instance = new Singleton();
+	private static Singleton instance;
 	
 	private EntityManagerFactory emf;
 	
@@ -13,7 +13,9 @@ public class Singleton {
 		emf = Persistence.createEntityManagerFactory("ga");
 	}
 	
-	public static Singleton getInstance() {
+	public static synchronized Singleton getInstance() {
+		if(instance == null) 
+			instance = new Singleton();
 		return instance;
 	}
 	
