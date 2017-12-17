@@ -1,39 +1,62 @@
 package entity;
 
 import java.io.Serializable;
-import java.lang.String;
 import javax.persistence.*;
 
+
 /**
- * Entity implementation class for Entity: User
- *
+ * The persistent class for the user database table.
+ * 
  */
 @Entity
-
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
-
-	   
-	@Id
-	private String username;
-	private String password;
 	private static final long serialVersionUID = 1L;
+	private String username;
+	private String consistentAdvantagePref;
+	private String efficiencyGapPref;
+	private String password;
 
 	public User() {
-		super();
-	}   
-	public String getUser_name() {
+		efficiencyGapPref = "false";
+		consistentAdvantagePref = "false";
+	}
+
+
+	@Id
+	public String getUsername() {
 		return this.username;
 	}
 
-	public void setUser_name(String username) {
+	public void setUsername(String username) {
 		this.username = username;
-	}   
-	public String getUser_pass() {
+	}
+
+
+	public String getConsistentAdvantagePref() {
+		return this.consistentAdvantagePref;
+	}
+
+	public void setConsistentAdvantagePref(String consistentAdvantagePref) {
+		this.consistentAdvantagePref = consistentAdvantagePref;
+	}
+
+
+	public String getEfficiencyGapPref() {
+		return this.efficiencyGapPref;
+	}
+
+	public void setEfficiencyGapPref(String efficiencyGapPref) {
+		this.efficiencyGapPref = efficiencyGapPref;
+	}
+
+
+	public String getPassword() {
 		return this.password;
 	}
 
-	public void setUser_pass(String userpass) {
-		this.password = userpass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-   
+
 }

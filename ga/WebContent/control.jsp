@@ -11,6 +11,9 @@
 </body>
 </html> -->
 
-<a class="button" href="#aboutPopup">About</a>
-<a class="button" href="#loginPopup">Login/Register</a>
-<input type="button" value="Another Button"/>
+<a class="button control" href="#aboutPopup">About</a>
+<a class="button loggedOut control" href="#loginPopup">Login/Register</a>
+<a class="button loggedIn control" href="#logout" onclick="logout();">Logout</a>
+<!-- a id="xxx" class="button loggedIn" href="userPrefsPopup.jsp">User Preferences</a -->
+<a class="button loggedIn control" href="#userPrefsPopup" onclick="userPrefs();">User Preferences</a>
+<input type="button control" value="Another Button"/>

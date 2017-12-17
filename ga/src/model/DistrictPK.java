@@ -11,13 +11,20 @@ import javax.persistence.*;
 public class DistrictPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
+	private String cd115fp;
 	private String statefp;
 	private int year;
-	private String generalVotes;
-	private String party;
-	private String cd115fp;
+	private String d;
+	private String r;
 
 	public DistrictPK() {
+	}
+
+	public String getCd115fp() {
+		return this.cd115fp;
+	}
+	public void setCd115fp(String cd115fp) {
+		this.cd115fp = cd115fp;
 	}
 
 	public String getStatefp() {
@@ -34,26 +41,18 @@ public class DistrictPK implements Serializable {
 		this.year = year;
 	}
 
-	@Column(name="GENERAL_VOTES")
-	public String getGeneralVotes() {
-		return this.generalVotes;
+	public String getD() {
+		return this.d;
 	}
-	public void setGeneralVotes(String generalVotes) {
-		this.generalVotes = generalVotes;
-	}
-
-	public String getParty() {
-		return this.party;
-	}
-	public void setParty(String party) {
-		this.party = party;
+	public void setD(String d) {
+		this.d = d;
 	}
 
-	public String getCd115fp() {
-		return this.cd115fp;
+	public String getR() {
+		return this.r;
 	}
-	public void setCd115fp(String cd115fp) {
-		this.cd115fp = cd115fp;
+	public void setR(String r) {
+		this.r = r;
 	}
 
 	public boolean equals(Object other) {
@@ -65,21 +64,21 @@ public class DistrictPK implements Serializable {
 		}
 		DistrictPK castOther = (DistrictPK)other;
 		return 
-			this.statefp.equals(castOther.statefp)
+			this.cd115fp.equals(castOther.cd115fp)
+			&& this.statefp.equals(castOther.statefp)
 			&& (this.year == castOther.year)
-			&& this.generalVotes.equals(castOther.generalVotes)
-			&& this.party.equals(castOther.party)
-			&& this.cd115fp.equals(castOther.cd115fp);
+			&& this.d.equals(castOther.d)
+			&& this.r.equals(castOther.r);
 	}
 
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
+		hash = hash * prime + this.cd115fp.hashCode();
 		hash = hash * prime + this.statefp.hashCode();
 		hash = hash * prime + this.year;
-		hash = hash * prime + this.generalVotes.hashCode();
-		hash = hash * prime + this.party.hashCode();
-		hash = hash * prime + this.cd115fp.hashCode();
+		hash = hash * prime + this.d.hashCode();
+		hash = hash * prime + this.r.hashCode();
 		
 		return hash;
 	}

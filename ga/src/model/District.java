@@ -16,11 +16,11 @@ public class District implements Serializable {
 	private DistrictPK id;
 	private String state;
 	private String stateAbbreviation;
+	private String cd115fp;
 	private String statefp;
 	private int year;
-	private String generalVotes;
-	private String party;
-	private String cd115fp;
+	private String d;
+	private String r;
 
 	public District() {
 	}
@@ -35,16 +35,17 @@ public class District implements Serializable {
 		this.id = id;
 	}
 
-
-	public String getState() {
-		return this.state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
 	
+
+	public String getCd115fp() {
+		return cd115fp;
+	}
+
+
+	public void setCd115fp(String cd115fp) {
+		this.cd115fp = cd115fp;
+	}
+
 
 	public String getStatefp() {
 		return statefp;
@@ -65,34 +66,33 @@ public class District implements Serializable {
 		this.year = year;
 	}
 
-	@Column(name="GENERAL_VOTES")
-	public String getGeneralVotes() {
-		return generalVotes;
+
+	public String getD() {
+		return d;
 	}
 
 
-	public void setGeneralVotes(String generalVotes) {
-		this.generalVotes = generalVotes;
+	public void setD(String d) {
+		this.d = d;
 	}
 
 
-	public String getParty() {
-		return party;
+	public String getR() {
+		return r;
 	}
 
 
-	public void setParty(String party) {
-		this.party = party;
+	public void setR(String r) {
+		this.r = r;
 	}
 
 
-	public String getCd115fp() {
-		return cd115fp;
+	public String getState() {
+		return this.state;
 	}
 
-
-	public void setCd115fp(String cd115fp) {
-		this.cd115fp = cd115fp;
+	public void setState(String state) {
+		this.state = state;
 	}
 
 
